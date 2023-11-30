@@ -64,7 +64,7 @@ export default function Home({ navigation }) {
   };
 
   const detalhes = (id, titulo, descricao) => {
-    navigation.navigate('Visualizar', {
+    navigation.navigate('Detalhes', {  
       id,
       tituloAtual: titulo,
       descricaoAtual: descricao,
