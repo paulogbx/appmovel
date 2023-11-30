@@ -4,10 +4,11 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import { onValue, push, ref, remove } from 'firebase/database';
 import { db } from '../src/firebaseConect';
 
+
 export default function Home({ navigation }) {
   const [titulo, setTitulo] = useState('');
   const [descricao, setDescricacao] = useState('');
-  const [anotacoes, setAnotacoes] = useState([]);
+  const [anotacoes, setAnotacaos] = useState([]);
 
   const cadastrarAnotacao = ()=>{
     if(titulo && descricao){
@@ -62,9 +63,16 @@ export default function Home({ navigation }) {
     );
   };
 
+  const detalhes = (id, titulo, descricao) => {
+    navigation.navigate('Visualizar', {
+      id,
+      tituloAtual: titulo,
+      descricaoAtual: descricao,
+    });
+  };
+
   return (
     <View style={styles.container}>
-      <Text>Um Aplicativo de anotação usando CRUD react native com firebase.</Text>
       <TextInput style={styles.input}
         placeholder="Titulo da Anotação"
         value={titulo}
@@ -83,7 +91,8 @@ export default function Home({ navigation }) {
         renderItem={({ item }) => (
           <View style={styles.paginaDetalhe}>
             <Text style={styles.texto}> {item.titulo}</Text>
-            <Text style={styles.texto}> R$ {item.descricao}</Text>
+            <Ionicons name="eye-outline" size={26}
+              onPress={() => detalhes(item.id)}/>
             <Ionicons name="create-outline" size={26}
               onPress={() => atualizarAnotacao(item.id, item.titulo, item.descricao)}/>
             <Ionicons name="trash-outline" size={26}

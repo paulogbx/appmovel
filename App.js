@@ -1,8 +1,9 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import AtualizaProdutos from './components/AtualizaProdutos';
+import AtualizaAnotacao from './components/AtualizaAnotacao';
 import Home from './components/Home';
+
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -21,7 +22,7 @@ export default function App() {
           },
         }}
         />
-        <Stack.Screen name="Atualizar" component={AtualizaProdutos}
+        <Stack.Screen name="Atualizar" component={AtualizaAnotacao}
         options={{
           title: 'App Anotações',
           headerStyle: {
