@@ -92,7 +92,7 @@ export default function Home({ navigation }) {
           <View style={styles.paginaDetalhe}>
             <Text style={styles.texto}> {item.titulo}</Text>
             <Ionicons name="eye-outline" size={26}
-              onPress={() => detalhes(item.id)}/>
+              onPress={() => detalhes(item.id, item.titulo, item.descricao)}/>
             <Ionicons name="create-outline" size={26}
               onPress={() => atualizarAnotacao(item.id, item.titulo, item.descricao)}/>
             <Ionicons name="trash-outline" size={26}
